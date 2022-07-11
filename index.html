@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>PAMC</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="HTML5 website template">
+  <meta name="keywords" content="global, template, html, sass, jquery">
+  <meta name="author" content="Bucky Maler">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" type="image/x-icon" href="/assets/img/favic.png">
+</head>
+
+<body>
+
+  <!-- Modal for errors -->
+  <div class="modal fade" id="appModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content bg-dark" style="border-radius: 0;">
+        <div class="modal-header" style="border-bottom: 0">
+          <h5 class="modal-title" id="appModalTitle"></h5>
+        </div>
+        <div class="modal-body"  style="border-bottom: 0">
+          <p id="appModalContent"></p>
+        </div>
+        <div class="modal-footer"  style="border-top: 0">
+          <button type="button" class="btn btn-secondary" style="border-radius: 0;" data-dismiss="modal" id="close-modal" onclick="closeModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- notification for small viewports and landscape oriented smartphones -->
+  <div class="device-notification">
+    <a class="device-notification--logo" href="#0">
+      <!-- <img src="/assets/img/favic.png" alt="Global"> -->
+      <p>PAMC</p>
+    </a>
+  </div>
+
+  <div class="perspective effect-rotate-left">
+    <div class="container-oamc">
+      <div class="outer-nav--return"></div>
+      <div id="viewport" class="l-viewport">
+        <!-- background stars -->
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+        <div class="l-wrapper">
+          <header class="header">
+            <div class="header--logo">
+              <!-- <img src="assets/img/logo.png" alt="Global"> -->
+              <img src="/assets/img/favic.png" alt="Global" style="width: 30px;">
+              <p>PAMC</p>
+            </div>
+            <button class="header--cta cta">Mint</button>
+            <!-- <div class="header--nav-toggle">
+              <span></span>
+            </div> -->
+          </header>
+          <nav class="l-side-nav">
+            <ul class="side-nav">
+              <li class="is-active"><span>Home</span></li>
+              <li><span>NFTs</span></li>
+              <li><span>About</span></li>
+              <li><span>Mint</span></li>
+            </ul>
+          </nav>
+          <ul class="l-main-content main-content">
+            <li class="l-section section section--is-active">
+              <div class="intro">
+                <div class="intro--banner">
+                  <h1>Prime Ape<br>Moon Club</h1>
+                  <button class="btn-banner cta">Mint
+                    <span class="btn-background"></span>
+                  </button>
+                  <img class="img-banner" src="assets/img/introduction-visual.gif" alt="Welcome">
+                </div>
+                <div class="intro--options">
+                  <span>
+                    <h3>7777 apes, out of which 777 are reserved for free public mint.</h3>
+                    <p>0.005 ETH - public price for an ape</p>
+                    <br>
+                    <p class="text-secondary">We're here to discover new horizons. What about you?! Join us & be part of
+                      The Colonizators. Prime Ape Moon Club is only one of our projects, there's a lot more to come and you
+                      should not miss it!</p>
+                  </span>
+                </div>
+                <div class="social-container pt-4 text-center">
+                  <div class="social-menu ml-0 text-center">
+                    <ul>
+                      <li><a href="https://twitter.com/ape_moon_club" target="blank"><img src="assets/img/twitter.png"></a>
+                      </li>
+                      <li><a href="https://opensea.io/collection/primeapemoonclub" target="blank"><img
+                            src="assets/img/opensea.png"></i></a></li>
+                      <li><a href="https://etherscan.io/address/0x8290f60eb08f0fdea2fe70eb6250f117a7989a7a" target="blank"><img
+                            src="assets/img/etherscan.png"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="l-section section">
+              <div class="work">
+                <h2>Moon club members</h2>
+                <div class="work--lockup">
+                  <ul class="slider">
+                    <li class="slider--item slider--item-left">
+                      <a href="#0">
+                        <div class="slider--item-image">
+                          <img src="assets/img/cvvb.png" alt="Victory">
+                        </div>
+                        <p class="slider--item-title">PIONEERS</p>
+                        <p class="slider--item-description">They are the vast majority. The colonization mission falls
+                          on their brave shoulders.</p>
+                      </a>
+                    </li>
+                    <li class="slider--item slider--item-center">
+                      <a href="#0">
+                        <div class="slider--item-image">
+                          <img src="assets/img/Moondefender.gif" alt="Metiew and Smith">
+                        </div>
+                        <p class="slider--item-title">UNIQUE</p>
+                        <p class="slider--item-description">The Moon Lord is an unique NFT. It's the most powerful and
+                          rare NFT out there. Are you lucky enough to mint it?</p>
+                      </a>
+                    </li>
+                    <li class="slider--item slider--item-right">
+                      <a href="#0">
+                        <div class="slider--item-image">
+                          <img src="assets/img/Cosmonaut.gif" alt="Alex Nowak">
+                        </div>
+                        <p class="slider--item-title">LEGENDARY</p>
+                        <p class="slider--item-description">There is a limited number of legendary items. These are gifs
+                          individually created by our artists.</p>
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="slider--prev">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118"
+                      style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                      <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                        <path d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29
+                    c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180
+                    c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z" />
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="slider--next">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118"
+                      style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                      <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                        <path
+                          d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z" />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="l-section section">
+              <div class="about">
+                <div class="about--banner">
+                  <h2>The<br>Colonizators!?</h2>
+                  <!-- <a href="#0">Career
+                    <span>
+                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118"
+                        style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                        <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                          <path
+                            d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z" />
+                        </g>
+                      </svg>
+                    </span>
+                  </a> -->
+                  <p class="mt-5 mt-5">
+                    Prime Ape Moon Club is the first project of The Colonizators. The Moon Lord is taking care of this
+                    mission, along with his allies and pioneers.
+                    We've got big plans for the future, so make sure you stay up to date with out latest posts on social
+                    media.
+                    We're planning on launching several high-quality collection in regards to colonization.
+
+                    </br></br>
+
+                    Or collections will be inter-connected, which means that owning one or more NFTs from the previous
+                    collections will put you in a good
+                    light for the following ones.
+
+                    </br></br>
+
+                    It is going to be an amazing experience for all of us!
+                  </p>
+
+                  <h4 class="mt-4">The Moon is the first milestone on the road to the stars</h4>
+                  <!-- <img src="assets/img/about-visual.png" alt="About Us"> -->
+                </div>
+              </div>
+            </li>
+            <li class="l-section section">
+              <div class="hire">
+                <div class="row intro--banner">
+                  <div class="col-md-5 text-center d-none d-md-block">
+                    <img src="assets/img/skel.gif" alt="Welcome">
+                  </div>
+                  <div class="col-md-7 pt-3">
+                    <h2>Live MINT</h2>
+                    <h5 class="text-center" id="tokens-available"><b>0/7777</b></h5>
+                    <div class="work-request">
+                      <div class="amount-container-oamc">
+                        <span class="next" onClick="nextNum()"></span>
+                        <span class="prev" onClick="prevNum()"></span>
+                        <div id="amount">
+                        </div>
+                      </div>
+                      <button class="custom-btn btn-11" id="connect-button">Connect your wallet</button>
+                      <button class="custom-btn btn-11" id="mint-button" style="display: none;">Mint</button>
+                      <p class="mt-3 text-center text-secondary">
+                        The number of <b>free NFTs</b> is limited to 2 items per wallet. If you want to buy more, you'll
+                        pay
+                        for the rest, except the first 3. <br><br>
+                        The public price for one item is <b>0.005 ETH</b>.
+                      </p>
+                      <p id="connected-wallet-address" style="display: none"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <h5 id="customer-order"></h5>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <ul class="outer-nav">
+      <li class="is-active">Home</li>
+      <li>NFTs</li>
+      <li>About</li>
+      <li>Mint</li>
+    </ul>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/functions-min.js"></script>
+  <script src="assets/js/amount-input.js"></script>
+  <script src="assets/js/mint/sale.js"></script>
+  <script src="assets/js/mint/connect.js"></script>
+  <script src="assets/js/mint/main.js"></script>
+</body>
+
+</html>

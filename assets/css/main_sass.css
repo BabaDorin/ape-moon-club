@@ -1,0 +1,18 @@
+/* Error: Expected newline.
+ *   ,
+ * 3 | @function multiple-box-shadow ($n)
+ *   |                                   ^
+ *   '
+ *   modules\_background.sass 3:35  @import
+ *   main.sass 24:9                 root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Expected newline.\a   \2577 \a 3 \2502  @function multiple-box-shadow ($n)\d\a   \2502                                    ^\a   \2575 \a   modules\\_background.sass 3:35  @import\a   main.sass 24:9                 root stylesheet";
+}
