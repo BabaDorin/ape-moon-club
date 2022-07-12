@@ -798,36 +798,58 @@ const mint = async (e) => {
         let totalSupply = await contract.methods.totalSupply().call();
         
         const address_balance = await contract.methods.balanceOf(accounts[0]).call();
+
+		const maxFreeForMint = 2000;
+
+		const alreadyMinted = await contract.methods.getFreeNftAlreadyMinted().call();
+
+		console.log('free already minted: ' + alreadyMinted);
         
         let finalPrice = 0;
 		let customerOrderLabel = document.getElementById('customer-order');
-        if (address_balance + cnt > FREE_PER_WALLET_ON_WEBSITE){
+
+		let checkAgainst = FREE_PER_WALLET_ON_WEBSITE;
+
+		if (alreadyMinted > maxFreeForMint) checkAgainst = 0;
+
+		if (checkAgainst == 0) {
+			// mint all with eth
+
+			finalPrice = cnt * price;
+			let finalPriceDisplay = finalPrice / 1000000000000000000;
+
+			customerOrderLabel.textContent = '0 free, ' + cnt + ' paid. Final price: ' + finalPriceDisplay + ' ETH + gas.';
+		} 
+		else 
+		{
+			if (address_balance + cnt > checkAgainst){
             
-            const price = await contract.methods.getSalePrice().call();
-
-            if (address_balance > FREE_PER_WALLET_ON_WEBSITE) {
-                // Paid mint for all
-                finalPrice = cnt * price;
-				let finalPriceDisplay = finalPrice / 1000000000000000000;
-
-				customerOrderLabel.textContent = '0 free, ' + cnt + ' paid. Final price: ' + finalPriceDisplay + ' ETH + gas.';
-            }
-            else
-            {
-                // Mixed: Left free - for free, the rest - for ETH.
-                const freeMint = FREE_PER_WALLET_ON_WEBSITE - address_balance;
-                const paidMint = cnt - freeMint;
-
-                finalPrice = paidMint * price;
-				customerOrderLabel.textContent = freeMint + ' free, ' + paidMint + ' paid. Final price: ' + finalPrice / 1000000000000000000 + ' ETH + gas.';
-            }
-        }
-        else {
-            // Mint all for free
-            finalPrice = 0;
-
-			customerOrderLabel.textContent = cnt + ' free, just pay for the gas.';
-        }
+				const price = await contract.methods.getSalePrice().call();
+	
+				if (address_balance > checkAgainst) {
+					// Paid mint for all
+					finalPrice = cnt * price;
+					let finalPriceDisplay = finalPrice / 1000000000000000000;
+	
+					customerOrderLabel.textContent = '0 free, ' + cnt + ' paid. Final price: ' + finalPriceDisplay + ' ETH + gas.';
+				}
+				else
+				{
+					// Mixed: Left free - for free, the rest - for ETH.
+					const freeMint = checkAgainst - address_balance;
+					const paidMint = cnt - freeMint;
+	
+					finalPrice = paidMint * price;
+					customerOrderLabel.textContent = freeMint + ' free, ' + paidMint + ' paid. Final price: ' + finalPrice / 1000000000000000000 + ' ETH + gas.';
+				}
+			}
+			else {
+				// Mint all for free
+				finalPrice = 0;
+	
+				customerOrderLabel.textContent = cnt + ' free, just pay for the gas.';
+			}
+		}
 
         const gas = await estimateGas(contract, cnt, finalPrice, accounts[0]);
 
