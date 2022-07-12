@@ -1,4 +1,4 @@
-const CONTRACT_ADDR = "0x13c990aa8989ce1a0c4bd9a0da5ff17dc66bbd5e";
+const CONTRACT_ADDR = "0x8290F60eb08F0FDEA2Fe70Eb6250f117A7989a7a";
 
 const abi=
 [
