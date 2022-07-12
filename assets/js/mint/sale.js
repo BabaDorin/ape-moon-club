@@ -761,7 +761,7 @@ const abi=
 
 // Do not try to overrite these values. These verifications also exists within the contract.
 // There is no need to try overcoming them.
-const FREE_PER_WALLET_ON_WEBSITE = 2;
+const FREE_PER_WALLET_ON_WEBSITE = 0;
 
 const mint = async (e) => {
     if (typeof window.ethereum == 'undefined')
