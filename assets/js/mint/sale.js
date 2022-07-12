@@ -815,6 +815,8 @@ const mint = async (e) => {
 		if (checkAgainst == 0) {
 			// mint all with eth
 
+			const price = await contract.methods.getSalePrice().call();
+			
 			finalPrice = cnt * price;
 			let finalPriceDisplay = finalPrice / 1000000000000000000;
 
